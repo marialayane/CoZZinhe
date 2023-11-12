@@ -226,7 +226,8 @@ def transformacao(df_recipes, df_rating):
     return df
 
 
-def analise_exploratoria(st.write('---')
+def analise_exploratoria(df):
+    st.write('---')
     st.write('# Análise Exploratória')
     st.write('---')
     st.write('A análise exploratória fornecerá uma visão geral dos dados coletados. Os resultados da análise serão usados para orientar o desenvolvimento de hipóteses e para identificar variáveis que são importantes para o estudo. A análise exploratória também pode ajudar a determinar se os dados podem ser usados para atingir os objetivos do estudo ou se os dados coletados precisam ser aprimorados.')
