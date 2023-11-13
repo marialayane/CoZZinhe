@@ -227,7 +227,94 @@ def transformacao(df_recipes, df_rating):
 
 
 def analise_exploratoria(df):
-    pass
+    st.write('---')
+    st.write('# Análise Exploratória')
+    st.write('---')
+    st.write('A análise exploratória fornecerá uma visão geral dos dados coletados. Os resultados da análise serão usados para orientar o desenvolvimento de hipóteses e para identificar variáveis que são importantes para o estudo. A análise exploratória também pode ajudar a determinar se os dados podem ser usados para atingir os objetivos do estudo ou se os dados coletados precisam ser aprimorados.')
+
+
+    #PREPARAÇÃO DE DADOS
+    st.write('---')
+    st.write('# Preparação de dados')
+    st.write('---')
+    st.write('Nesta seção, será feita a análise exploratória sobre um dataset de receitas culinárias, o “Food.com Recipes and Interactions” (2019).')
+    
+    st.write('---')
+    st.write('A análise exploratória fornecerá uma visão geral dos dados coletados. Os resultados da análise serão usados para orientar o desenvolvimento de hipóteses e para identificar variáveis que são importantes para o estudo.')
+    
+    
+    #ESTATÍSTICA DESCRITIVA
+    st.write('---')
+    st.write('# Estatística descritiva')
+    st.write('---')
+    st.write('Nesta seção, será apresentada a análise detalhada da estatística descritiva do grupo de variáveis quantitativas previamente selecionadas do conjunto de dados “Food.com Recipes ans Interactions”.')
+    # df com as variaveis minutes, n_passos, n_ingredients e rating
+    df_quantitative = df.loc[:, ['minutes', 'n_steps', 'n_ingredients', 'avg_rating']]
+    st.dataframe(df_quantitative.describe())
+    st.write('Minutos (minutes): a variável “minutos” representa o tempo de preparo das receitas em minutos. Com uma média de 9.398,6 e um desvio padrão de aproximadamente 4.461.972,7, a variável despertou interesse, pois há uma grande variabilidade entre os tempos de preparo. O tempo mínimo é de 0 e o máximo de 2.147.483.647, indicando a presença de algumas receitas com um tempo absurdamente alto. Apresentando um desvio assimétrico para a esquerda, ou seja, a maior parte das receitas possuem um tempo moderado, enquanto outras apresentam valores muito altos.')
+    st.write('N_passos (n_steps): a variável representa o número de passos por receita, com uma média de 9,8 e um desvio padrão de aproximadamente 6. O número mínimo de passos para uma receita é de 0, enquanto o número máximo encontrado é 145. Comportamento esperado, uma vez que a quantidade de passos depende da complexidade da receita.')
+    st.write('N_ingredientes (n_ingredients): a variável representa a quantidade de ingredientes por receita, com uma média de 9 e um desvio padrão de aproximadamente 3,8. O número mínimo de ingredientes de uma receita é de 1, enquanto o número máximo encontrado é 43. Comportamento era esperado, já que a quantidade de ingredientes de uma receita pode variar.')
+    st.write('Nota (rating): a variável representa a nota média de cada receita, com uma média de 4,3 e um desvio padrão de aproximadamente 0,99. A nota mínima de uma receita é de 0, enquanto a máxima é de 5. Essa distribuição de notas sugere que as receitas geralmente recebem avaliações moderadas, com poucas recebendo pontuações extremamente baixas ou altas.')
+
+
+    #VISUALIZAÇÃO DE DADOS
+    st.write('---')
+    st.write('# Visualização de dados')
+    st.write('---')
+    st.write('Nestas seção, conta com um histograma, que mostra a distribuição das avaliações médias por receita. ')
+    st.write('Essas informações são valiosas para entender as preferências dos usuários e podem ser usadas em futuras decisões relacionadas a seleção de receitas.')
+    # histograma de avaliação média por receita
+    fig, ax = plt.subplots()
+    df['avg_rating'].plot(kind='hist')
+    # alterar o nome da coluna
+    plt.xlabel('Avaliação média')
+    plt.ylabel('Quantidade de receitas')
+    st.pyplot(fig)
+
+
+    st.write('---')
+    st.write('Neste próximo histograma apresenta a quantidade de receitas que contêm açúcar e as que não contêm. A partir dele, é possível destacar um número significativo de receitas com a presença de açúcar em seus ingredientes.')
+    # histograma de receitas que contem açucar e não contem
+    fig, ax = plt.subplots()
+    df['ingredients'].apply(lambda x: "'sugar'" in x).value_counts().plot(kind='bar')
+    # alterar o nome da coluna
+    plt.xlabel('Contém açúcar')
+    plt.ylabel('Quantidade de receitas')
+    st.plotly_chart(fig)
+
+
+    #Análise de Correlação
+    st.write('---')
+    st.write('# Análise de Correlação')
+    st.write('Nesta seção será apresentada a relação entre todas as variáveis quantitativas no conjunto de dados de receitas.')
+
+    st.write('### Pairplot')
+    # pairplot das variaveis 
+    sns.set_theme(style="whitegrid")
+    sns.set_palette("pastel")
+    dados_sns = df_quantitative.sample(10000)
+    fig = sns.pairplot(dados_sns)
+    st.pyplot(fig)
+
+    st.write('Utilizaremos um mapa de calor no qual a classificação da correlação varia de acordo com o valor de "r", que é o coeficiente de correlação de Pearson, que pode variar de -1 a 1. Quanto mais próximo de 1, maior a correlação positiva entre as variáveis. Quanto mais próximo de -1, maior a correlação negativa entre as variáveis. Quanto mais próximo de 0, menor a correlação entre as variáveis.')
+    st.write('A classificação da correlação, baseada no valor de "r", é feita da seguinte forma:')
+    st.markdown('**Tabela 1**: Classificação do valor de “r”')
+    data = {
+            'Valor de "r"': ['0,00 a 0,19', '0,20 a 0,39', '0,40 a 0,59', '0,60 a 0,79', '0,80 a 1,00'],
+            'Classificação': ['Muito fraca', 'Fraca', 'Moderada', 'Forte', 'Muito forte']
+    }
+    df4 = pd.DataFrame(data)
+    st.table(df4)
+
+    st.write('### Mapa de Calor')
+    # mapa de calor
+
+    fig, ax = plt.subplots()
+    sns.heatmap(df_quantitative.corr(), annot=True, cmap='Blues')
+    st.pyplot(fig)
+    st.write('Finalmente, é possível confirmar as hipóteses criadas a partir da visualização do Pairplot, pois o mapa de calor nos mostra que apenas um par de variáveis ("n_passos" e "n_ingredientes") possui uma relação considerada moderada. No entanto, não é possível afirmar que ao aumentar o número de passos, o número de ingredientes aumentará, pois existem receitas com muitos passos e poucos ingredientes, e vice-versa.')
+    st.write('---')
+    return df
 
 
 def main():
@@ -242,9 +329,8 @@ def main():
 
     df_recipes, df_rating = selecao_dos_dados(df_recipes, df_rating)
     df_recipes, df_rating = preprocessamento(df_recipes, df_rating)
-    df_recipes, df_rating = transformacao(df_recipes, df_rating)
-    # FALTA A PARTE DE ANÁLISE EXPLORATÓRIA. add os graficos aqui
-    df_recipes, df_rating = analise_exploratoria(df_recipes, df_rating)
+    df = transformacao(df_recipes, df_rating)
+    df = analise_exploratoria(df)
 
 
 if __name__ == '__main__':
