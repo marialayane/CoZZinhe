@@ -330,7 +330,6 @@ def main():
     df_recipes, df_rating = selecao_dos_dados(df_recipes, df_rating)
     df_recipes, df_rating = preprocessamento(df_recipes, df_rating)
     df_recipes, df_rating = transformacao(df_recipes, df_rating)
-    # FALTA A PARTE DE ANÁLISE EXPLORATÓRIA. add os graficos aqui
     df_recipes, df_rating = analise_exploratoria(df_recipes, df_rating)
 
 
