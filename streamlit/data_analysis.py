@@ -118,7 +118,7 @@ def preprocessamento(df_recipes, df_rating):
     st.write('## 2. Remoção de colunas desnecessárias')
     st.write('A fim de analisar de maneira mais precisa, foi realizada uma seleção inicial de colunas que serão utilizadas para a análise. Diante disso, as colunas "data_submissão” e "data" foram descartadas, uma vez que não estaremos lidando com dados temporais de avaliação ou submissão de receitas. Além disso, as colunas de "descrição", "tags" e "avaliação" foram consideradas irrelevantes devido à grande quantidade de dados nulos presentes. Também optou-se por não utilizar as colunas de identificação, como "id_contribuidor", "id_usuario" e "receita_id",  pois não seriam contribuintes para a análise e a coluna "receita_id" foi omitida por ser idêntica à coluna de identificador. ')
     # remoção de colunas desnecessárias
-    df_recipes = df_recipes.drop(['submitted', 'description', 'tags', 'contributor_id', 'n_steps', 'n_ingredients'], axis=1)
+    df_recipes = df_recipes.drop(['submitted', 'description', 'tags', 'contributor_id'], axis=1)
     df_rating = df_rating.drop(['date', 'user_id', 'review'], axis=1)
     st.write('---')
     st.write('**Amostras:**')
