@@ -5,6 +5,8 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import io
 import altair as alt
+from sklearn.cluster import KMeans
+
 
 
 def selecao_dos_dados(df_recipes, df_rating):
@@ -316,22 +318,49 @@ def analise_exploratoria(df):
     st.write('---')
     return df
 
+def perform_clustering(df):
+    # Prepare the data
+    X = df[['rating']].values
+
+    # Determine the optimal number of clusters
+    wcss = []
+    for i in range(1, 11):
+        kmeans = KMeans(n_clusters=i, init='k-means++', max_iter=300, n_init=10, random_state=0)
+        kmeans.fit(X)
+        wcss.append(kmeans.inertia_)
+    plt.plot(range(1, 11), wcss)
+    plt.title('Elbow Method')
+    plt.xlabel('Number of clusters')
+    plt.ylabel('WCSS')
+    plt.show()
+
+    # Apply KMeans clustering
+    optimal_clusters = 3  # replace this with the optimal number of clusters you determined
+    kmeans = KMeans(n_clusters=optimal_clusters, init='k-means++', max_iter=300, n_init=10, random_state=0)
+    pred_y = kmeans.fit_predict(X)
+
+    # Visualize the clusters
+    plt.scatter(X[:,0], [0]*len(X), c=pred_y)
+    plt.scatter(kmeans.cluster_centers_[:, 0], [0]*len(kmeans.cluster_centers_), s=300, c='red')
+    plt.show()
+
+    return df
+
 
 def main():
     # configurações da página
     st.set_page_config(page_title="Análise Exploratória", page_icon="📊")
     st.title('Análise Exploratória de Dados')
     st.markdown("---")
-    # LEMBRAR DE ALTERAR O CAMINHO DOS ARQUIVOS
-    df_recipes = pd.read_csv('C:/Users/lanes/Dropbox/PC/Documents/#UFRPE/streamlit_teste/RAW_recipes.csv')
-    df_rating = pd.read_csv('C:/Users/lanes/Dropbox/PC/Documents/#UFRPE/streamlit_teste/RAW_interactions.csv') 
+    # LEMBRAR DE ALTERAR O CAMINHO DOS ARQUIVOS    
+    df_recipes = pd.read_csv('C:/Users/lucas/OneDrive/Faculdade/Pisi3/RAW_recipes.csv')
+    df_rating = pd.read_csv('C:/Users/lucas/OneDrive/Faculdade/Pisi3/RAW_interactions.csv')
+
     st.markdown('---')
 
     df_recipes, df_rating = selecao_dos_dados(df_recipes, df_rating)
     df_recipes, df_rating = preprocessamento(df_recipes, df_rating)
+    df = perform_clustering(df)
     df = transformacao(df_recipes, df_rating)
     df = analise_exploratoria(df)
 
-
-if __name__ == '__main__':
-    main()
