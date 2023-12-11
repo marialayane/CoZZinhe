@@ -4,10 +4,12 @@ import 'package:luko1de_s_cozzinhe/widgets/custom_radio_button.dart';
 
 // ignore: must_be_immutable
 class FoodrestrictionsItemWidget extends StatelessWidget {
-  FoodrestrictionsItemWidget({Key? key})
-      : super(
-          key: key,
-        );
+  final String imagePath;
+  final String textoPath; // Adiciona o parâmetro textoPath
+
+  FoodrestrictionsItemWidget(
+      {Key? key, required this.imagePath, required this.textoPath})
+      : super(key: key);
 
   String radioGroup = "";
 
@@ -28,8 +30,8 @@ class FoodrestrictionsItemWidget extends StatelessWidget {
                   padding: EdgeInsets.only(top: 6.v),
                   child: CustomRadioButton(
                     width: 342.h,
-                    text: "Amendoim",
-                    value: "Amendoim",
+                    text: textoPath,
+                    value: textoPath,
                     groupValue: radioGroup,
                     isRightCheck: true,
                     onChange: (value) {
@@ -52,7 +54,7 @@ class FoodrestrictionsItemWidget extends StatelessWidget {
                     borderRadius: BorderRadiusStyle.roundedBorder7,
                   ),
                   child: CustomImageView(
-                    imagePath: ImageConstant.imgAmendoim4,
+                    imagePath: imagePath,
                     height: 42.v,
                     width: 37.h,
                     alignment: Alignment.center,

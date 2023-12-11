@@ -131,6 +131,52 @@ class HomePage extends StatelessWidget {
 
   /// Section Widget
   Widget _buildHomeList(BuildContext context) {
+    // Exemplo de dados para cada item na lista
+    List<Map<String, String>> itemList = [
+      {
+        'imagePath': ImageConstant.boloDeBanana,
+        'title': 'Bolo de Banana',
+        'rating': '5',
+        'time': '120 min',
+      },
+      {
+        'imagePath': ImageConstant.boloDeCenoura,
+        'title': 'Bolo de Cenoura',
+        'rating': '4.5',
+        'time': '40 min',
+      },
+      {
+        'imagePath': ImageConstant.pratocamarao,
+        'title': 'Risoto de Camarão',
+        'rating': '5',
+        'time': '40 min',
+      },
+      {
+        'imagePath': ImageConstant.guioza,
+        'title': 'Guioza',
+        'rating': '5',
+        'time': '55 min',
+      },
+      {
+        'imagePath': ImageConstant.boloIntegral,
+        'title': 'Bolo Integral',
+        'rating': '3.5',
+        'time': '75 min',
+      },
+      {
+        'imagePath': ImageConstant.imageNotFound,
+        'title': 'ImageNotFound',
+        'rating': '?',
+        'time': '?',
+      },
+      {
+        'imagePath': ImageConstant.imageNotFound,
+        'title': 'ImageNotFound',
+        'rating': '?',
+        'time': '?',
+      },
+    ];
+
     return Expanded(
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 34.h),
@@ -145,9 +191,15 @@ class HomePage extends StatelessWidget {
               height: 12.v,
             );
           },
-          itemCount: 5,
+          itemCount: itemList.length,
           itemBuilder: (context, index) {
-            return HomelistItemWidget();
+            final item = itemList[index];
+            return HomelistItemWidget(
+              imagePath: item['imagePath'] ?? '',
+              title: item['title'] ?? '',
+              rating: item['rating'] ?? '',
+              time: item['time'] ?? '',
+            );
           },
         ),
       ),

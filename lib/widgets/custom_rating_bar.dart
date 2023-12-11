@@ -31,7 +31,7 @@ class CustomRatingBar extends StatelessWidget {
 
   final Color? unselectedColor;
 
-  Function(double)? onRatingUpdate;
+  final Function(double)? onRatingUpdate;
 
   @override
   Widget build(BuildContext context) {

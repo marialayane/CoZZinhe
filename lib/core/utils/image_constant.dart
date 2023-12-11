@@ -3,7 +3,7 @@ class ImageConstant {
   static String imagePath = 'assets/images';
 
   // Login images
-  static String imgEllipse216 = '$imagePath/img_ellipse_216.png';
+  static String logo = '$imagePath/cozzinheLogo.png';
 
   // Perfil images
   static String imgUser = '$imagePath/img_user.svg';
@@ -11,7 +11,9 @@ class ImageConstant {
   // Home images
   static String imgMifilter = '$imagePath/img_mifilter.svg';
 
-  static String imgImage1 = '$imagePath/img_image_1.png';
+  static String boloDeCenoura = '$imagePath/imgReceita1.png';
+
+  static String boloDeBanana = '$imagePath/imgReceita4.png';
 
   static String imgStar15 = '$imagePath/img_star_1_5.svg';
 
@@ -22,17 +24,19 @@ class ImageConstant {
 
   static String imgStar16 = '$imagePath/img_star_1_6.svg';
 
-  static String imgImage192x92 = '$imagePath/img_image_1_92x92.png';
+  static String boloIntegral = '$imagePath/imgReceita5.png';
 
   static String imgStar17 = '$imagePath/img_star_1_7.svg';
 
-  static String imgImage11 = '$imagePath/img_image_1_1.png';
+  static String guioza = '$imagePath/imgReceita2.png';
 
   static String imgStar18 = '$imagePath/img_star_1_8.svg';
 
-  static String imgImage12 = '$imagePath/img_image_1_2.png';
+  static String bolinho = '$imagePath/imgReceita3.png';
 
   static String imgStar19 = '$imagePath/img_star_1_9.svg';
+
+  static String pratocamarao = '$imagePath/img_image_1_3.png';
 
   // Receita images
   static String imgRectangle4226242x360 =
@@ -43,15 +47,15 @@ class ImageConstant {
 
   static String imgBolinhaColorido = '$imagePath/img_bolinha_colorido.svg';
 
-  static String imgAmendoim4 = '$imagePath/img_amendoim_4.png';
+  static String imgAmedoim = '$imagePath/img1.png';
 
-  static String imgAmendoim442x37 = '$imagePath/img_amendoim_4_42x37.png';
+  static String imgTrigo = '$imagePath/img2.png';
 
-  static String imgAmendoim41 = '$imagePath/img_amendoim_4_1.png';
+  static String imgCamarao = '$imagePath/img3.png';
 
-  static String imgAmendoim42 = '$imagePath/img_amendoim_4_2.png';
+  static String imgAcucar = '$imagePath/img4.png';
 
-  static String imgAmendoim43 = '$imagePath/img_amendoim_4_3.png';
+  static String imgLaticinios = '$imagePath/img5.png';
 
   static String imgHome = '$imagePath/img_home.svg';
 

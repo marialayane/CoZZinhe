@@ -10,7 +10,7 @@ class ReceitaScreen extends StatelessWidget {
           key: key,
         );
 
-  GlobalKey<NavigatorState> navigatorKey = GlobalKey();
+  final GlobalKey<NavigatorState> navigatorKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {

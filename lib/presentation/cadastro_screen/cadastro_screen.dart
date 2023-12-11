@@ -126,19 +126,49 @@ class CadastroScreen extends StatelessWidget {
             width: 24.adaptSize, controller: searchController));
   }
 
-  /// Section Widget
   Widget _buildFoodRestrictions(BuildContext context) {
     return Expanded(
-        child: ListView.separated(
-            physics: BouncingScrollPhysics(),
-            shrinkWrap: true,
-            separatorBuilder: (context, index) {
-              return SizedBox(height: 15.v);
-            },
-            itemCount: 5,
-            itemBuilder: (context, index) {
-              return FoodrestrictionsItemWidget();
-            }));
+      child: ListView.separated(
+        physics: BouncingScrollPhysics(),
+        shrinkWrap: true,
+        separatorBuilder: (context, index) {
+          return SizedBox(height: 15.v);
+        },
+        itemCount: 5,
+        itemBuilder: (context, index) {
+          // Crie um índice baseado em 1, pois os índices geralmente começam em 0
+          int itemIndex = index + 1;
+
+          // Use o índice para obter informações sobre a restrição alimentar
+          var restrictionInfo = getFoodRestrictionInfoForIndex(itemIndex);
+          String imagePath = restrictionInfo[0];
+          String text = restrictionInfo[1];
+
+          return FoodrestrictionsItemWidget(
+            imagePath: imagePath,
+            textoPath: text,
+          );
+        },
+      ),
+    );
+  }
+
+// Função para obter o caminho da imagem e o texto com base no índice
+  List<dynamic> getFoodRestrictionInfoForIndex(int index) {
+    switch (index) {
+      case 1:
+        return [ImageConstant.imgAmedoim, "Amendoim"];
+      case 2:
+        return [ImageConstant.imgTrigo, "Trigo"];
+      case 3:
+        return [ImageConstant.imgCamarao, "Camarão"];
+      case 4:
+        return [ImageConstant.imgAcucar, "Açúcar"];
+      case 5:
+        return [ImageConstant.imgLaticinios, "Laticínios"];
+      default:
+        return [ImageConstant.imageNotFound, "Imagem não encontrada"];
+    }
   }
 
   /// Section Widget

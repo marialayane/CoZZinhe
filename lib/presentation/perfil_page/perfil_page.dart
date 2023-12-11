@@ -264,7 +264,7 @@ class PerfilPage extends StatelessWidget {
                     borderRadius: BorderRadiusStyle.roundedBorder7,
                   ),
                   child: CustomImageView(
-                    imagePath: ImageConstant.imgAmendoim43,
+                    imagePath: ImageConstant.imgAcucar,
                     height: 42.v,
                     width: 37.h,
                     alignment: Alignment.center,
@@ -329,7 +329,7 @@ class PerfilPage extends StatelessWidget {
                     borderRadius: BorderRadiusStyle.roundedBorder7,
                   ),
                   child: CustomImageView(
-                    imagePath: ImageConstant.imgAmendoim43,
+                    imagePath: ImageConstant.imgCamarao,
                     height: 42.v,
                     width: 37.h,
                     alignment: Alignment.center,

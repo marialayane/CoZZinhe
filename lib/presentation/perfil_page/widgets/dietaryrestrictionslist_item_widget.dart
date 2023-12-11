@@ -52,7 +52,7 @@ class DietaryrestrictionslistItemWidget extends StatelessWidget {
                     borderRadius: BorderRadiusStyle.roundedBorder7,
                   ),
                   child: CustomImageView(
-                    imagePath: ImageConstant.imgAmendoim4,
+                    imagePath: ImageConstant.imgCamarao,
                     height: 42.v,
                     width: 37.h,
                     alignment: Alignment.center,

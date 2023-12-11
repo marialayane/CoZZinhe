@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:luko1de_s_cozzinhe/core/app_export.dart';
 
 class BaseButton extends StatelessWidget {
   BaseButton({

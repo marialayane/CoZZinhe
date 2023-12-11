@@ -25,7 +25,7 @@ class LoginScreen extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 33.h, vertical: 49.v),
                 child: Column(mainAxisSize: MainAxisSize.min, children: [
                   CustomImageView(
-                      imagePath: ImageConstant.imgEllipse216,
+                      imagePath: ImageConstant.logo,
                       height: 183.adaptSize,
                       width: 183.adaptSize,
                       radius: BorderRadius.circular(91.h)),

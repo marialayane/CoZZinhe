@@ -30,7 +30,7 @@ class CustomRadioButton extends StatelessWidget {
 
   final double? iconSize;
 
-  String? value;
+  final String? value;
 
   final String? groupValue;
 
