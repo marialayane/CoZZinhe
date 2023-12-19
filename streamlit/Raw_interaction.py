@@ -1,6 +1,7 @@
 import pandas as pd
 
 # Carregue apenas as colunas 'rating' e 'review' do CSV para um DataFrame do pandas
+#LEMBRAR DE TROCAS OS CAMINHOS
 df = pd.read_csv('C:/Users/lucas/OneDrive/Faculdade/Pisi3/RAW_interactions.csv', usecols=['rating', 'review'])
 
 # Escreva o DataFrame para um arquivo Parquet
