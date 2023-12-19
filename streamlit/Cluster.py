@@ -3,9 +3,20 @@ import pandas as pd
 from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os
 
-# Carregue o arquivo Parquet
-df = pd.read_parquet('RAW_Interaction_subset.parquet')
+# Verifique se o arquivo Parquet já existe
+parquet_file = 'RAW_Interaction_subset.parquet'
+if not os.path.exists(parquet_file):
+    # Se o arquivo Parquet não existe, leia o CSV e salve como Parquet
+    st.info('Lendo CSV e criando arquivo Parquet...')
+    csv_file = 'C:/Users/lucas/OneDrive/Faculdade/Pisi3/RAW_interactions.csv'  # Substitua pelo caminho do seu arquivo CSV
+    df = pd.read_csv(csv_file)
+    df.to_parquet(parquet_file, index=False)
+    st.success('Arquivo Parquet criado com sucesso!')
+else:
+    # Se o arquivo Parquet já existe, apenas carregue-o
+    df = pd.read_parquet(parquet_file)
 
 # Cabeçalho do aplicativo Streamlit
 st.title('Clusterização de Ratings')
@@ -67,3 +78,19 @@ st.write(
     "A tabela exibe os ratings associados a cada cluster, permitindo uma inspeção detalhada dos registros. "
     "Verifique a distribuição de ratings dentro de cada cluster e identifique padrões específicos."
 )
+
+# Boxplot dos Clusters e Ratings das Receitas
+boxplot_fig, ax = plt.subplots(figsize=(10, 6))
+sns.boxplot(x='cluster', y='rating', data=df, ax=ax)
+sns.stripplot(x='cluster', y='rating', data=df, color='black', size=3, alpha=0.5)  # Adiciona os pontos individuais
+ax.set_xlabel('Cluster')
+ax.set_ylabel('Rating das Receitas')
+
+# Adicione uma explicação para o Boxplot
+st.subheader('Boxplot dos Clusters e Ratings das Receitas')
+st.write(
+    "O boxplot exibe a distribuição dos ratings das receitas em cada cluster, "
+    "e os pontos individuais mostram as receitas específicas dentro de cada cluster."
+)
+# Exiba o boxplot
+st.pyplot(boxplot_fig)
