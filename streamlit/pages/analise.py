@@ -1,10 +1,11 @@
-
+import numpy as np
 import pandas as pd
 import streamlit as st
 import seaborn as sns
 import matplotlib.pyplot as plt
-
-def show_data_analysis():
+import io
+import altair as alt
+def show_analise():
     st.title("Página de Análise Exploratória")
     # Adicione o conteúdo específico para a análise exploratória aqui
     st.write("Este é o conteúdo da página de análise exploratória.")
@@ -334,4 +335,5 @@ def main():
     df_recipes, df_rating = preprocessamento(df_recipes, df_rating)
     df = transformacao(df_recipes, df_rating)
     df = analise_exploratoria(df)
-main()
+main();
+
