@@ -5,12 +5,17 @@ import 'package:flutter/services.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:luko1de_s_cozzinhe/theme/theme_helper.dart';
 import 'package:luko1de_s_cozzinhe/routes/app_routes.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   ///Please update theme as per your need if required.
   ThemeHelper().changeTheme('primary');
