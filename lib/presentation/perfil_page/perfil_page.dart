@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:luko1de_s_cozzinhe/core/app_export.dart';
 import 'package:luko1de_s_cozzinhe/widgets/custom_search_view.dart';
 import 'package:luko1de_s_cozzinhe/widgets/custom_text_form_field.dart';
+import 'package:luko1de_s_cozzinhe/widgets/navbar.dart';
 
 // ignore_for_file: must_be_immutable
 class PerfilPage extends StatelessWidget {
@@ -12,13 +13,9 @@ class PerfilPage extends StatelessWidget {
         );
 
   TextEditingController group176Controller = TextEditingController();
-
   TextEditingController emailController = TextEditingController();
-
   TextEditingController group174Controller = TextEditingController();
-
   TextEditingController searchController = TextEditingController();
-
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
@@ -33,121 +30,134 @@ class PerfilPage extends StatelessWidget {
           child: Container(
             width: double.maxFinite,
             decoration: AppDecoration.outlineBlack9002,
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  _buildLoginStack(context),
-                  SizedBox(height: 20.v),
-                  Container(
-                    height: 100.adaptSize,
-                    width: 100.adaptSize,
-                    padding: EdgeInsets.all(16.h),
-                    decoration: AppDecoration.fillBlueGray.copyWith(
-                      borderRadius: BorderRadiusStyle.circleBorder50,
-                    ),
-                    child: CustomImageView(
-                      imagePath: ImageConstant.imgUser,
-                      height: 66.adaptSize,
-                      width: 66.adaptSize,
-                      alignment: Alignment.center,
-                    ),
-                  ),
-                  SizedBox(height: 19.v),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: EdgeInsets.only(left: 35.h),
-                      child: Text(
-                        "Nome:",
-                        style: CustomTextStyles.bodyLargeBlack900,
+            child: Stack(
+              children: [
+                SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      _buildLoginStack(context),
+                      SizedBox(height: 20.v),
+                      Container(
+                        height: 100.adaptSize,
+                        width: 100.adaptSize,
+                        padding: EdgeInsets.all(16.h),
+                        decoration: AppDecoration.fillBlueGray.copyWith(
+                          borderRadius: BorderRadiusStyle.circleBorder50,
+                        ),
+                        child: CustomImageView(
+                          imagePath: ImageConstant.imgUser,
+                          height: 66.adaptSize,
+                          width: 66.adaptSize,
+                          alignment: Alignment.center,
+                        ),
                       ),
-                    ),
-                  ),
-                  SizedBox(height: 1.v),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 35.h),
-                    child: CustomTextFormField(
-                      controller: group176Controller,
-                      hintText: "Seu nome ficará aqui",
-                    ),
-                  ),
-                  SizedBox(height: 15.v),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: EdgeInsets.only(left: 35.h),
-                      child: Text(
-                        "E-mail:",
-                        style: CustomTextStyles.bodyLargeBlack900,
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 2.v),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 35.h),
-                    child: CustomTextFormField(
-                      controller: emailController,
-                      hintText: "Seu email ficará aqui",
-                      textInputType: TextInputType.emailAddress,
-                    ),
-                  ),
-                  SizedBox(height: 15.v),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Container(
-                      height: 27.v,
-                      width: 61.h,
-                      margin: EdgeInsets.only(left: 35.h),
-                      child: Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          Align(
-                            alignment: Alignment.center,
-                            child: Text(
-                              "Senha:",
-                              style: CustomTextStyles.bodyLargeBlack900,
-                            ),
+                      SizedBox(height: 19.v),
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Padding(
+                          padding: EdgeInsets.only(left: 35.h),
+                          child: Text(
+                            "Nome:",
+                            style: CustomTextStyles.bodyLargeBlack900,
                           ),
-                          Align(
-                            alignment: Alignment.center,
-                            child: Text(
-                              "Senha:",
-                              style: CustomTextStyles.bodyLargeBlack900,
-                            ),
+                        ),
+                      ),
+                      SizedBox(height: 1.v),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 35.h),
+                        child: CustomTextFormField(
+                          controller: group176Controller,
+                          hintText: "Seu nome ficará aqui",
+                          autofocus: false,
+                        ),
+                      ),
+                      SizedBox(height: 15.v),
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Padding(
+                          padding: EdgeInsets.only(left: 35.h),
+                          child: Text(
+                            "E-mail:",
+                            style: CustomTextStyles.bodyLargeBlack900,
                           ),
-                        ],
+                        ),
                       ),
-                    ),
-                  ),
-                  SizedBox(height: 2.v),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 35.h),
-                    child: CustomTextFormField(
-                      controller: group174Controller,
-                      hintText: "Sua senha ficará aqui",
-                    ),
-                  ),
-                  SizedBox(height: 17.v),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: EdgeInsets.only(left: 35.h),
-                      child: Text(
-                        "Restrição Alimentar:",
-                        style: CustomTextStyles.bodyLargeBlack900,
+                      SizedBox(height: 2.v),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 35.h),
+                        child: CustomTextFormField(
+                          controller: emailController,
+                          hintText: "Seu email ficará aqui",
+                          textInputType: TextInputType.emailAddress,
+                          autofocus: false,
+                        ),
                       ),
-                    ),
+                      SizedBox(height: 15.v),
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Container(
+                          height: 27.v,
+                          width: 61.h,
+                          margin: EdgeInsets.only(left: 35.h),
+                          child: Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              Align(
+                                alignment: Alignment.center,
+                                child: Text(
+                                  "Senha:",
+                                  style: CustomTextStyles.bodyLargeBlack900,
+                                ),
+                              ),
+                              Align(
+                                alignment: Alignment.center,
+                                child: Text(
+                                  "Senha:",
+                                  style: CustomTextStyles.bodyLargeBlack900,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 2.v),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 35.h),
+                        child: CustomTextFormField(
+                          controller: group174Controller,
+                          hintText: "Sua senha ficará aqui",
+                          autofocus: false,
+                        ),
+                      ),
+                      SizedBox(height: 17.v),
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Padding(
+                          padding: EdgeInsets.only(left: 35.h),
+                          child: Text(
+                            "Restrição Alimentar:",
+                            style: CustomTextStyles.bodyLargeBlack900,
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 8.v),
+                      _buildSearchBar(context),
+                      SizedBox(height: 20.v),
+                      _buildDietaryRestrictionsList(context),
+                      SizedBox(height: 15.v),
+                      _buildDiabetesColumn(context),
+                      SizedBox(height: 36.v),
+                      _buildDiabetesColumn1(context),
+                    ],
                   ),
-                  SizedBox(height: 8.v),
-                  _buildSearchBar(context),
-                  SizedBox(height: 20.v),
-                  _buildDietaryRestrictionsList(context),
-                  SizedBox(height: 15.v),
-                  _buildDiabetesColumn(context),
-                  SizedBox(height: 36.v),
-                  _buildDiabetesColumn1(context),
-                ],
-              ),
+                ),
+                Positioned(
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  child: CustomNavBar(selectedIndex: 3),
+                ),
+              ],
             ),
           ),
         ),
@@ -203,6 +213,7 @@ class PerfilPage extends StatelessWidget {
       child: CustomSearchView(
         width: 24.adaptSize,
         controller: searchController,
+        autofocus: false,
       ),
     );
   }

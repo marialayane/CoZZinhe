@@ -40,7 +40,8 @@ class LoginScreen extends StatelessWidget {
     return CustomTextFormField(
         controller: emailFieldController,
         borderDecoration: TextFormFieldStyleHelper.outlineBlackTL12,
-        fillColor: appTheme.blueGray50.withOpacity(0.5));
+        fillColor: appTheme.blueGray50.withOpacity(0.5),
+        autofocus: false);
   }
 
   /// Section Widget
@@ -49,7 +50,8 @@ class LoginScreen extends StatelessWidget {
         controller: passwordFieldController,
         textInputAction: TextInputAction.done,
         borderDecoration: TextFormFieldStyleHelper.outlineBlackTL12,
-        fillColor: appTheme.blueGray50.withOpacity(0.5));
+        fillColor: appTheme.blueGray50.withOpacity(0.5),
+        autofocus: false);
   }
 
   /// Section Widget

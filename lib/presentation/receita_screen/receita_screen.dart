@@ -3,6 +3,7 @@ import 'package:luko1de_s_cozzinhe/core/app_export.dart';
 import 'package:luko1de_s_cozzinhe/widgets/custom_bottom_bar.dart';
 import 'package:luko1de_s_cozzinhe/widgets/custom_outlined_button.dart';
 import 'package:luko1de_s_cozzinhe/widgets/custom_rating_bar.dart';
+import 'package:luko1de_s_cozzinhe/widgets/navbar.dart';
 
 class ReceitaScreen extends StatelessWidget {
   ReceitaScreen({Key? key})
@@ -226,11 +227,16 @@ class ReceitaScreen extends StatelessWidget {
                     ],
                   ),
                 ),
+                Positioned(
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  child: CustomNavBar(selectedIndex: 6),
+                ),
               ],
             ),
           ),
         ),
-        bottomNavigationBar: _buildBottomBar(context),
       ),
     );
   }
@@ -335,13 +341,6 @@ class ReceitaScreen extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-
-  /// Section Widget
-  Widget _buildBottomBar(BuildContext context) {
-    return CustomBottomBar(
-      onChanged: (BottomBarEnum type) {},
     );
   }
 }

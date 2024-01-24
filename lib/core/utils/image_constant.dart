@@ -32,6 +32,8 @@ class ImageConstant {
 
   static String imgStar18 = '$imagePath/img_star_1_8.svg';
 
+  static String imgStarEmpty = '$imagePath/emptyStar.png';
+
   static String bolinho = '$imagePath/imgReceita3.png';
 
   static String imgStar19 = '$imagePath/img_star_1_9.svg';

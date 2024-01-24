@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:luko1de_s_cozzinhe/core/app_export.dart';
 
-class CustomTextFormField extends StatelessWidget {
+class CustomTextFormField extends StatefulWidget {
   CustomTextFormField({
     Key? key,
     this.alignment,
@@ -25,116 +25,101 @@ class CustomTextFormField extends StatelessWidget {
     this.fillColor,
     this.filled = true,
     this.validator,
-  }) : super(
-          key: key,
-        );
+  }) : super(key: key);
 
   final Alignment? alignment;
-
   final double? width;
-
   final TextEditingController? controller;
-
   final FocusNode? focusNode;
-
   final bool? autofocus;
-
   final TextStyle? textStyle;
-
   final bool? obscureText;
-
   final TextInputAction? textInputAction;
-
   final TextInputType? textInputType;
-
   final int? maxLines;
-
   final String? hintText;
-
   final TextStyle? hintStyle;
-
   final Widget? prefix;
-
   final BoxConstraints? prefixConstraints;
-
   final Widget? suffix;
-
   final BoxConstraints? suffixConstraints;
-
   final EdgeInsets? contentPadding;
-
   final InputBorder? borderDecoration;
-
   final Color? fillColor;
-
   final bool? filled;
-
   final FormFieldValidator<String>? validator;
 
   @override
+  _CustomTextFormFieldState createState() => _CustomTextFormFieldState();
+}
+
+class _CustomTextFormFieldState extends State<CustomTextFormField> {
+  @override
   Widget build(BuildContext context) {
-    return alignment != null
+    return widget.alignment != null
         ? Align(
-            alignment: alignment ?? Alignment.center,
+            alignment: widget.alignment ?? Alignment.center,
             child: textFormFieldWidget,
           )
         : textFormFieldWidget;
   }
 
   Widget get textFormFieldWidget => SizedBox(
-        width: width ?? double.maxFinite,
+        width: widget.width ?? double.maxFinite,
         child: TextFormField(
-          controller: controller,
-          focusNode: focusNode ?? FocusNode(),
-          autofocus: autofocus!,
-          style: textStyle ?? CustomTextStyles.bodyMediumBlack900,
-          obscureText: obscureText!,
-          textInputAction: textInputAction,
-          keyboardType: textInputType,
-          maxLines: maxLines ?? 1,
+          controller: widget.controller,
+          focusNode: widget.focusNode ?? FocusNode(),
+          autofocus: widget.autofocus!,
+          style: widget.textStyle ?? CustomTextStyles.bodyMediumBlack900,
+          obscureText: widget.obscureText!,
+          textInputAction: widget.textInputAction!,
+          keyboardType: widget.textInputType!,
+          maxLines: widget.maxLines ?? 1,
           decoration: decoration,
-          validator: validator,
+          validator: widget.validator,
         ),
       );
-  InputDecoration get decoration => InputDecoration(
-        hintText: hintText ?? "",
-        hintStyle: hintStyle ?? CustomTextStyles.bodyMediumBlack900,
-        prefixIcon: prefix,
-        prefixIconConstraints: prefixConstraints,
-        suffixIcon: suffix,
-        suffixIconConstraints: suffixConstraints,
-        isDense: true,
-        contentPadding: contentPadding ?? EdgeInsets.all(9.h),
-        fillColor: fillColor ?? appTheme.blueGray30059.withOpacity(0.15),
-        filled: filled,
-        border: borderDecoration ??
-            OutlineInputBorder(
-              borderRadius: BorderRadius.circular(11.h),
-              borderSide: BorderSide(
-                color: appTheme.black900,
-                width: 1,
-              ),
+
+  InputDecoration get decoration {
+    return InputDecoration(
+      hintText: widget.hintText ?? "",
+      hintStyle: widget.hintStyle ?? CustomTextStyles.bodyMediumBlack900,
+      prefixIcon: widget.prefix,
+      prefixIconConstraints: widget.prefixConstraints,
+      suffixIcon: widget.suffix,
+      suffixIconConstraints: widget.suffixConstraints,
+      isDense: true,
+      contentPadding: widget.contentPadding ?? EdgeInsets.all(9.h),
+      fillColor: widget.fillColor ?? appTheme.blueGray30059.withOpacity(0.15),
+      filled: widget.filled!,
+      border: widget.borderDecoration ??
+          OutlineInputBorder(
+            borderRadius: BorderRadius.circular(11.h),
+            borderSide: BorderSide(
+              color: appTheme.black900,
+              width: 1,
             ),
-        enabledBorder: borderDecoration ??
-            OutlineInputBorder(
-              borderRadius: BorderRadius.circular(11.h),
-              borderSide: BorderSide(
-                color: appTheme.black900,
-                width: 1,
-              ),
+          ),
+      enabledBorder: widget.borderDecoration ??
+          OutlineInputBorder(
+            borderRadius: BorderRadius.circular(11.h),
+            borderSide: BorderSide(
+              color: appTheme.black900,
+              width: 1,
             ),
-        focusedBorder: borderDecoration ??
-            OutlineInputBorder(
-              borderRadius: BorderRadius.circular(11.h),
-              borderSide: BorderSide(
-                color: appTheme.black900,
-                width: 1,
-              ),
+          ),
+      focusedBorder: widget.borderDecoration ??
+          OutlineInputBorder(
+            borderRadius: BorderRadius.circular(11.h),
+            borderSide: BorderSide(
+              color: appTheme.black900,
+              width: 1,
             ),
-      );
+          ),
+    );
+  }
 }
 
-/// Extension on [CustomTextFormField] to facilitate inclusion of all types of border style etc
 extension TextFormFieldStyleHelper on CustomTextFormField {
   static OutlineInputBorder get outlineBlackTL12 => OutlineInputBorder(
         borderRadius: BorderRadius.circular(12.h),

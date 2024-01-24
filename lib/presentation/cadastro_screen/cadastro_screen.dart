@@ -185,6 +185,8 @@ class CadastroScreen extends StatelessWidget {
 
   /// Navigates to the loginScreen when the action is triggered.
   onTapRegisterButton(BuildContext context) {
+    print(
+        "${emailController.text}, ${insertNameController.text}, ${insertPasswordController.text}");
     Navigator.pushNamed(context, AppRoutes.loginScreen);
   }
 }
