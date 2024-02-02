@@ -1,19 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:luko1de_s_cozzinhe/core/app_export.dart';
+import '../../../core/app_export.dart';
 
+// ignore: must_be_immutable
 class HomelistItemWidget extends StatelessWidget {
-  final String imagePath;
-  final String title;
-  final String rating;
-  final String time;
-
-  const HomelistItemWidget({
-    Key? key,
-    required this.imagePath,
-    required this.title,
-    required this.rating,
-    required this.time,
-  }) : super(key: key);
+  const HomelistItemWidget({Key? key})
+      : super(
+          key: key,
+        );
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +22,7 @@ class HomelistItemWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CustomImageView(
-            imagePath: imagePath,
+            imagePath: ImageConstant.boloDeBanana,
             height: 92.adaptSize,
             width: 92.adaptSize,
             radius: BorderRadius.circular(
@@ -47,9 +40,9 @@ class HomelistItemWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  width: 200.h,
+                  width: 147.h,
                   child: Text(
-                    title,
+                    "Bolo de cenoura simples \ne fácil",
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: theme.textTheme.bodySmall,
@@ -63,7 +56,7 @@ class HomelistItemWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
-                        width: 41.h,
+                        width: 33.h,
                         margin: EdgeInsets.only(bottom: 4.v),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -75,7 +68,7 @@ class HomelistItemWidget extends StatelessWidget {
                               margin: EdgeInsets.only(bottom: 4.v),
                             ),
                             Text(
-                              rating,
+                              "5",
                               style: theme.textTheme.bodyLarge,
                             ),
                           ],
@@ -97,7 +90,7 @@ class HomelistItemWidget extends StatelessWidget {
                             Align(
                               alignment: Alignment.bottomRight,
                               child: Text(
-                                time,
+                                "40 min",
                                 style: CustomTextStyles.bodySmallLight,
                               ),
                             ),

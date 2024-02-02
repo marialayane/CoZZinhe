@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:luko1de_s_cozzinhe/core/app_export.dart';
+import '../../core/app_export.dart';
 
 class CustomBottomBar extends StatefulWidget {
   CustomBottomBar({this.onChanged});
 
-  final Function(BottomBarEnum)? onChanged;
+  Function(BottomBarEnum)? onChanged;
 
   @override
   CustomBottomBarState createState() => CustomBottomBarState();

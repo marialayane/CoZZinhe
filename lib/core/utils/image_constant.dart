@@ -32,13 +32,9 @@ class ImageConstant {
 
   static String imgStar18 = '$imagePath/img_star_1_8.svg';
 
-  static String imgStarEmpty = '$imagePath/emptyStar.png';
-
   static String bolinho = '$imagePath/imgReceita3.png';
 
   static String imgStar19 = '$imagePath/img_star_1_9.svg';
-
-  static String pratocamarao = '$imagePath/img_image_1_3.png';
 
   // Receita images
   static String imgRectangle4226242x360 =
@@ -49,15 +45,15 @@ class ImageConstant {
 
   static String imgBolinhaColorido = '$imagePath/img_bolinha_colorido.svg';
 
-  static String imgAmedoim = '$imagePath/img1.png';
+  static String imgAmedoim = '$imagePath/amendoim_icon.png';
 
-  static String imgTrigo = '$imagePath/img2.png';
+  static String imgTrigo = '$imagePath/trigo_icon.png';
 
   static String imgCamarao = '$imagePath/img3.png';
 
   static String imgAcucar = '$imagePath/img4.png';
 
-  static String imgLaticinios = '$imagePath/img5.png';
+  static String imgLaticinios = '$imagePath/laticinios_icon.png';
 
   static String imgHome = '$imagePath/img_home.svg';
 

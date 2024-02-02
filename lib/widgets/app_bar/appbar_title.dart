@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:luko1de_s_cozzinhe/core/app_export.dart';
+import '../../core/app_export.dart';
 
 // ignore: must_be_immutable
 class AppbarTitle extends StatelessWidget {
@@ -24,20 +24,17 @@ class AppbarTitle extends StatelessWidget {
       onTap: () {
         onTap!.call();
       },
-      child: Padding(
-        padding: margin ?? EdgeInsets.zero,
-        child: Container(
-          width: 58.h,
-          decoration: AppDecoration.outlineBlack900,
-          child: Text(
-            text,
-            maxLines: null,
-            overflow: TextOverflow.ellipsis,
-            style: CustomTextStyles.displayMediumPoppinsSecondaryContainer
-                .copyWith(
-              color: theme.colorScheme.secondaryContainer,
-            ),
+      child: Container(
+        width: double.maxFinite,
+        child: Text(
+          text,
+          maxLines: null,
+          overflow: TextOverflow.ellipsis,
+          style:
+              CustomTextStyles.displayMediumPoppinsSecondaryContainer.copyWith(
+            color: theme.colorScheme.secondaryContainer,
           ),
+          textAlign: TextAlign.center,
         ),
       ),
     );

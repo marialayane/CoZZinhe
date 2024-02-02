@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:luko1de_s_cozzinhe/core/app_export.dart';
+import '/core/app_export.dart';
 
 class CustomSearchView extends StatelessWidget {
   CustomSearchView({
@@ -101,7 +101,15 @@ class CustomSearchView extends StatelessWidget {
           padding: EdgeInsets.all(
             15.h,
           ),
+          child: Icon(
+            Icons.search,
+            color: Colors.grey.shade600,
+          ),
         ),
+        prefixIconConstraints: prefixConstraints ??
+            BoxConstraints(
+              maxHeight: 24.v,
+            ),
         suffixIcon: suffix ??
             SizedBox(
               child: CustomImageView(

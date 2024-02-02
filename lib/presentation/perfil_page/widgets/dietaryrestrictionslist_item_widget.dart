@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:luko1de_s_cozzinhe/core/app_export.dart';
-import 'package:luko1de_s_cozzinhe/widgets/custom_radio_button.dart';
+import '../../../core/app_export.dart';
+import '/widgets/custom_radio_button.dart';
 
 // ignore: must_be_immutable
 class DietaryrestrictionslistItemWidget extends StatelessWidget {

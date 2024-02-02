@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:luko1de_s_cozzinhe/core/app_export.dart';
+import '../../core/app_export.dart';
 
 class CustomRatingBar extends StatelessWidget {
   CustomRatingBar({
@@ -31,7 +31,7 @@ class CustomRatingBar extends StatelessWidget {
 
   final Color? unselectedColor;
 
-  final Function(double)? onRatingUpdate;
+  Function(double)? onRatingUpdate;
 
   @override
   Widget build(BuildContext context) {

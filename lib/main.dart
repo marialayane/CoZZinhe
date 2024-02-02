@@ -3,34 +3,62 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:luko1de_s_cozzinhe/theme/theme_helper.dart';
-import 'package:luko1de_s_cozzinhe/routes/app_routes.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
+import 'theme/theme_helper.dart';
+import 'routes/app_routes.dart';
+import 'presentation/login_screen/login_screen.dart';
+import 'presentation/cadastro_screen/cadastro_screen.dart';
+import 'presentation/perfil_page/perfil_page.dart';
+import 'presentation/tab_screen.dart';
+import 'presentation/meal_detail/meal_detail_sreen.dart';
+import 'models/meal.dart';
+import 'presentation/item_screen/item_screen.dart';
 
-void main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
 
   ///Please update theme as per your need if required.
   ThemeHelper().changeTheme('primary');
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final List<Meal> _favoriteMeals = [];
+
+  void _toggleFavorite(Meal meal) {
+    setState(() {
+      _favoriteMeals.contains(meal)
+          ? _favoriteMeals.remove(meal)
+          : _favoriteMeals.add(meal);
+    });
+  }
+
+  bool _isFavorite(Meal meal) {
+    return _favoriteMeals.contains(meal);
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: theme,
-      title: 'luko1de_s_cozzinhe',
-      debugShowCheckedModeBanner: false,
-      initialRoute: AppRoutes.loginScreen,
-      routes: AppRoutes.routes,
-    );
+        theme: theme,
+        title: 'Cozzinhe',
+        debugShowCheckedModeBanner: false,
+        initialRoute: AppRoutes.loginScreen,
+        routes: {
+          AppRoutes.loginScreen: (ctx) => LoginScreen(),
+          AppRoutes.cadastroScreen: (ctx) => CadastroScreen(),
+          AppRoutes.perfilPage: (ctx) => PerfilPage(),
+          AppRoutes.homePage: (ctx) => TabsScreen(_favoriteMeals),
+          AppRoutes.mealDetail: (ctx) =>
+              MealDetailScreen(_toggleFavorite, _isFavorite),
+          AppRoutes.itemScreen: (ctx) => ItemScreen(),
+        });
   }
 }
