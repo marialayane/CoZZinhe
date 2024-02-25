@@ -51,7 +51,7 @@ class _MyAppState extends State<MyApp> {
         theme: theme,
         title: 'Cozzinhe',
         debugShowCheckedModeBanner: false,
-        initialRoute: AppRoutes.homePage,
+        initialRoute: AppRoutes.loginScreen,
         routes: {
           AppRoutes.loginScreen: (ctx) => LoginScreen(_favoriteMeals),
           AppRoutes.cadastroScreen: (ctx) => CadastroScreen(),
