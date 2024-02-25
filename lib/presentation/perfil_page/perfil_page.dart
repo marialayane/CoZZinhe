@@ -132,6 +132,7 @@ class PerfilPage extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 35.h),
           child: CustomTextFormField(
+            autofocus: false,
             controller: nameController,
             hintText: hintText,
           ),
@@ -161,6 +162,6 @@ Widget _buildSaveButton(BuildContext context, availableHeight) {
   );
 }
 
-onTapSaveButton(BuildContext context) {
+onTapLoginButton(BuildContext context) {
   // TODO: implement Actions
 }

@@ -12,6 +12,7 @@ import 'presentation/tab_screen.dart';
 import 'presentation/meal_detail/meal_detail_sreen.dart';
 import 'models/meal.dart';
 import 'presentation/item_screen/item_screen.dart';
+import 'presentation/home_page/filter.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -50,15 +51,16 @@ class _MyAppState extends State<MyApp> {
         theme: theme,
         title: 'Cozzinhe',
         debugShowCheckedModeBanner: false,
-        initialRoute: AppRoutes.loginScreen,
+        initialRoute: AppRoutes.homePage,
         routes: {
-          AppRoutes.loginScreen: (ctx) => LoginScreen(),
+          AppRoutes.loginScreen: (ctx) => LoginScreen(_favoriteMeals),
           AppRoutes.cadastroScreen: (ctx) => CadastroScreen(),
           AppRoutes.perfilPage: (ctx) => PerfilPage(),
           AppRoutes.homePage: (ctx) => TabsScreen(_favoriteMeals),
           AppRoutes.mealDetail: (ctx) =>
               MealDetailScreen(_toggleFavorite, _isFavorite),
           AppRoutes.itemScreen: (ctx) => ItemScreen(),
+          // AppRoutes.filterScreen: (ctx) => FilterScreen(),
         });
   }
 }

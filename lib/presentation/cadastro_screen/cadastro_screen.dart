@@ -93,12 +93,15 @@ class CadastroScreen extends StatelessWidget {
   /// Section Widget
   Widget _buildInsertName(BuildContext context) {
     return CustomTextFormField(
-        controller: insertNameController, hintText: "Insira seu nome");
+        autofocus: false,
+        controller: insertNameController,
+        hintText: "Insira seu nome");
   }
 
   /// Section Widget
   Widget _buildEmail(BuildContext context) {
     return CustomTextFormField(
+        autofocus: false,
         controller: emailController,
         hintText: "Insira seu e-mail",
         textInputType: TextInputType.emailAddress);
@@ -107,7 +110,9 @@ class CadastroScreen extends StatelessWidget {
   /// Section Widget
   Widget _buildInsertPassword(BuildContext context) {
     return CustomTextFormField(
-        controller: insertPasswordController, hintText: "Insira sua senha");
+        autofocus: false,
+        controller: insertPasswordController,
+        hintText: "Insira sua senha");
   }
 
   /// Section Widget

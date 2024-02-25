@@ -8,7 +8,7 @@ class CustomSearchView extends StatelessWidget {
     this.width,
     this.controller,
     this.focusNode,
-    this.autofocus = true,
+    this.autofocus = false,
     this.textStyle,
     this.textInputType = TextInputType.text,
     this.maxLines,
@@ -83,7 +83,7 @@ class CustomSearchView extends StatelessWidget {
         child: TextFormField(
           controller: controller,
           focusNode: focusNode ?? FocusNode(),
-          autofocus: autofocus!,
+          autofocus: false,
           style: textStyle,
           keyboardType: textInputType,
           maxLines: maxLines ?? 1,
@@ -97,14 +97,9 @@ class CustomSearchView extends StatelessWidget {
   InputDecoration get decoration => InputDecoration(
         hintText: hintText ?? "",
         hintStyle: hintStyle,
-        prefixIcon: Padding(
-          padding: EdgeInsets.all(
-            15.h,
-          ),
-          child: Icon(
-            Icons.search,
-            color: Colors.grey.shade600,
-          ),
+        prefixIcon: Icon(
+          Icons.search,
+          color: Colors.grey.shade600,
         ),
         prefixIconConstraints: prefixConstraints ??
             BoxConstraints(
@@ -126,17 +121,5 @@ class CustomSearchView extends StatelessWidget {
         contentPadding: contentPadding,
         fillColor: fillColor,
         filled: filled,
-        border: borderDecoration ??
-            OutlineInputBorder(
-              borderSide: BorderSide.none,
-            ),
-        enabledBorder: borderDecoration ??
-            OutlineInputBorder(
-              borderSide: BorderSide.none,
-            ),
-        focusedBorder: borderDecoration ??
-            OutlineInputBorder(
-              borderSide: BorderSide.none,
-            ),
       );
 }

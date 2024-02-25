@@ -7,15 +7,14 @@ import '/widgets/custom_text_form_field.dart';
 import '../../models/meal.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+  final List<Meal> favoriteMeals;
+  const LoginScreen(this.favoriteMeals, {super.key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final List<Meal> _favoriteMeals = [];
-
   TextEditingController emailFieldController = TextEditingController();
 
   TextEditingController passwordFieldController = TextEditingController();
@@ -39,7 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     margin: EdgeInsets.only(top: availableHeight * 0.1),
                   ),
                   SizedBox(
-                    height: availableHeight * 0.1,
+                    height: availableHeight * 0.3,
                     child: Image.asset(
                       'assets/images/cozzinheLogo.png',
                       fit: BoxFit.cover,
@@ -56,6 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
   /// Section Widget
   Widget _buildEmailField(BuildContext context) {
     return CustomTextFormField(
+      autofocus: false,
       controller: emailFieldController,
       borderDecoration: TextFormFieldStyleHelper.outlineBlackTL12,
       fillColor: appTheme.blueGray50.withOpacity(0.5),
@@ -67,6 +67,7 @@ class _LoginScreenState extends State<LoginScreen> {
   /// Section Widget
   Widget _buildPasswordField(BuildContext context) {
     return CustomTextFormField(
+        autofocus: false,
         hintText: 'Digite sua senha',
         controller: passwordFieldController,
         textInputAction: TextInputAction.done,
@@ -84,7 +85,7 @@ class _LoginScreenState extends State<LoginScreen> {
           Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => TabsScreen(_favoriteMeals)));
+                  builder: (context) => TabsScreen(widget.favoriteMeals)));
           onTapLoginButton(context);
         },
         alignment: Alignment.center);

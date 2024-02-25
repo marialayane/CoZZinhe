@@ -3,7 +3,7 @@ import '../../../core/app_export.dart';
 import '/widgets/custom_elevated_button.dart';
 import '/widgets/custom_search_view.dart';
 import '../../data/meals.dart';
-import 'widgets/meal_item.dart';
+import 'meal_item.dart';
 
 // ignore_for_file: must_be_immutable
 class HomePage extends StatelessWidget {
@@ -80,7 +80,7 @@ class HomePage extends StatelessWidget {
   Widget _buildBarraDePesquisa(BuildContext context) {
     return Container(
       decoration: AppDecoration.outlineBlack9001.copyWith(
-        borderRadius: BorderRadiusStyle.roundedBorder15,
+        borderRadius: BorderRadius.circular(70),
       ),
       margin: EdgeInsets.only(
         left: 35.h,
@@ -109,14 +109,19 @@ class HomePage extends StatelessWidget {
         children: [
           Padding(
             padding: EdgeInsets.only(top: 5.v),
-            child: Text(
+            child: const Text(
               "Sugestões",
-              style: theme.textTheme.titleLarge,
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+                fontWeight: FontWeight.w500,
+              ),
             ),
           ),
           CustomElevatedButton(
-            height: 30.v,
-            width: 108.h,
+            onPressed: () => {},
+            height: 35.v,
+            width: 115.h,
             text: "Filtros",
             margin: EdgeInsets.only(bottom: 5.v),
             leftIcon: Container(
