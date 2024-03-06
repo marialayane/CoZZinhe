@@ -245,26 +245,35 @@ class _ItemScreenState extends State<ItemScreen> {
                                         Padding(
                                           padding:
                                               const EdgeInsets.only(left: 15.0),
-                                          child: Text(
-                                            snapshot.data!.docs[index]['name'],
-                                            style: TextStyle(
-                                                fontSize: 14,
-                                                color: Colors.black),
-                                            textAlign: TextAlign.center,
-                                            overflow: TextOverflow.ellipsis,
+                                          child: Container(
+                                            width: availableWidth * 0.55,
+                                            child: Text(
+                                              snapshot.data!.docs[index]
+                                                  ['name'],
+                                              style: TextStyle(
+                                                  fontSize: 14,
+                                                  color: Colors.black),
+                                              textAlign: TextAlign.left,
+                                              overflow: TextOverflow.ellipsis,
+                                            ),
                                           ),
                                         ),
-                                        Row(
-                                          children: [
-                                            IconButton(
-                                                onPressed: () =>
-                                                    openDialogBox(docID),
-                                                icon:
-                                                    const Icon(Icons.settings)),
-                                            IconButton(
-                                                onPressed: () => delete(docID),
-                                                icon: const Icon(Icons.delete)),
-                                          ],
+                                        Container(
+                                          width: availableWidth * 0.25,
+                                          child: Row(
+                                            children: [
+                                              IconButton(
+                                                  onPressed: () =>
+                                                      openDialogBox(docID),
+                                                  icon: const Icon(
+                                                      Icons.settings)),
+                                              IconButton(
+                                                  onPressed: () =>
+                                                      delete(docID),
+                                                  icon:
+                                                      const Icon(Icons.delete)),
+                                            ],
+                                          ),
                                         )
                                       ],
                                     ),
