@@ -37,7 +37,8 @@ class _ItemScreenState extends State<ItemScreen> {
   }
 
   Stream<QuerySnapshot> read() {
-    return ingredients.snapshots();
+    // ordenar por nome
+    return ingredients.orderBy('name').snapshots();
   }
 
   Future<void> update(String docID, String newIngredientName) {
