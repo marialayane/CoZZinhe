@@ -6,7 +6,7 @@ import '../../../core/app_export.dart';
 class FavoriteScreen extends StatefulWidget {
   final List<Meal> favoriteMeals;
 
-  FavoriteScreen(this.favoriteMeals, {Key? key}) : super(key: key);
+  const FavoriteScreen(this.favoriteMeals, {Key? key}) : super(key: key);
 
   @override
   State<FavoriteScreen> createState() => _FavoriteScreenState();
@@ -37,7 +37,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
           child: Container(
             alignment: Alignment.topCenter,
             margin: EdgeInsets.only(top: availableHeight * 0.65),
-            child: Text(
+            child: const Text(
               'Nenhuma refeição foi marcada como favorita!',
               style: TextStyle(
                 color: Colors.black,

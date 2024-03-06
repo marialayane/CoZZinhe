@@ -1,22 +1,21 @@
 {
   "project_info": {
-    "project_number": "185938097760",
-    "firebase_url": "https://cozzinhee-default-rtdb.firebaseio.com",
-    "project_id": "cozzinhee",
-    "storage_bucket": "cozzinhee.appspot.com"
+    "project_number": "657156268774",
+    "project_id": "crudcozzinhe",
+    "storage_bucket": "crudcozzinhe.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:185938097760:android:bad59208b52680d103b505",
+        "mobilesdk_app_id": "1:657156268774:android:dccd7fb50785b306175127",
         "android_client_info": {
-          "package_name": "com.android.application"
+          "package_name": "com.example.cozzinhe2"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDRx2PkJgI4ADr5dehWMDx79hKQzKxYmq4"
+          "current_key": "AIzaSyBtLk2dnr6P3Dn1WW3lwimwQCotQFniPek"
         }
       ],
       "services": {

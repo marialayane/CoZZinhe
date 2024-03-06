@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
 import '../../models/meal.dart';
-import '../../routes/app_routes.dart';
 
 class MealItem extends StatelessWidget {
   final Meal meal;
@@ -69,7 +68,7 @@ class MealItem extends StatelessWidget {
                               fit: BoxFit.none,
                               child: Text(
                                 meal.title,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: Colors.black,
                                   fontSize: 15,
                                 ),
@@ -86,19 +85,19 @@ class MealItem extends StatelessWidget {
                             children: [
                               Row(
                                 children: [
-                                  Icon(Icons.star, color: Colors.amber),
+                                  const Icon(Icons.star, color: Colors.amber),
                                   Text(
-                                    '${meal.avgRating.toStringAsFixed(1)}',
-                                    style: TextStyle(
+                                    meal.avgRating.toStringAsFixed(1),
+                                    style: const TextStyle(
                                         color: Colors.amber, fontSize: 15),
                                   ),
                                 ],
                               ),
                               Row(
                                 children: [
-                                  Icon(Icons.schedule),
+                                  const Icon(Icons.schedule),
                                   Text('${meal.duration} min',
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           color: Colors.black, fontSize: 15)),
                                 ],
                               ),

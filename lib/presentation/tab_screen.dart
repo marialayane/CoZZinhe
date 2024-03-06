@@ -54,7 +54,7 @@ class _TabsScreenState extends State<TabsScreen> {
       body: _screens![_selectedScreenIndex]['screen'] as Widget,
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectScreen,
-        backgroundColor: Color(0XFFE62F31),
+        backgroundColor: const Color(0XFFE62F31),
         unselectedItemColor: Colors.white,
         selectedFontSize: 14,
         unselectedFontSize: 12,

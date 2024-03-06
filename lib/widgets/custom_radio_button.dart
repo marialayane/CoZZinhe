@@ -78,8 +78,8 @@ class CustomRadioButton extends StatelessWidget {
   Widget get leftSideRadioButton => Row(
         children: [
           Padding(
+            padding: const EdgeInsets.only(right: 8),
             child: radioButtonWidget,
-            padding: EdgeInsets.only(right: 8),
           ),
           textWidget,
         ],
@@ -89,7 +89,7 @@ class CustomRadioButton extends StatelessWidget {
         children: [
           textWidget,
           Padding(
-            padding: EdgeInsets.only(left: 8),
+            padding: const EdgeInsets.only(left: 8),
             child: radioButtonWidget,
           ),
         ],
@@ -103,7 +103,7 @@ class CustomRadioButton extends StatelessWidget {
         height: iconSize,
         width: iconSize,
         child: Radio<String>(
-          visualDensity: VisualDensity(
+          visualDensity: const VisualDensity(
             vertical: -4,
             horizontal: -4,
           ),

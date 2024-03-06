@@ -65,7 +65,7 @@ class FoodrestrictionsItemWidget extends StatelessWidget {
           ),
         ),
         SizedBox(height: 8.v),
-        Divider(),
+        const Divider(),
       ],
     );
   }

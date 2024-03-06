@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '/core/app_export.dart';
 
 class CustomSearchView extends StatelessWidget {
-  CustomSearchView({
+  const CustomSearchView({
     Key? key,
     this.alignment,
     this.width,

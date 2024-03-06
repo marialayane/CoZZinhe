@@ -17,7 +17,7 @@ class PerfilPage extends StatelessWidget {
 
   TextEditingController contactController = TextEditingController();
 
-  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   final availableHeight = mediaQueryData.size.height -
       mediaQueryData.padding.top -
@@ -34,7 +34,7 @@ class PerfilPage extends StatelessWidget {
         resizeToAvoidBottomInset: false,
         body: Form(
           key: _formKey,
-          child: Container(
+          child: SizedBox(
             width: double.maxFinite,
             child: SingleChildScrollView(
               child: Column(
@@ -44,7 +44,7 @@ class PerfilPage extends StatelessWidget {
                   Container(
                     height: availableHeight * 0.3.adaptSize,
                     width: availableHeight * 0.3.adaptSize,
-                    padding: EdgeInsets.all(0.2),
+                    padding: const EdgeInsets.all(0.2),
                     child: CustomImageView(
                       imagePath: ('assets/images/img_user.png'),
                       height: availableHeight * 0.3.adaptSize,
@@ -87,7 +87,7 @@ class PerfilPage extends StatelessWidget {
             child: Container(
               height: 50.v,
               width: double.maxFinite,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Color(0XFFE62F31),
               ),
             ),
@@ -120,7 +120,7 @@ class PerfilPage extends StatelessWidget {
             children: [
               Text(
                 text,
-                style: TextStyle(
+                style: const TextStyle(
                     color: Colors.black,
                     fontSize: 16,
                     fontWeight: FontWeight.w500),
@@ -146,18 +146,18 @@ Widget _buildSaveButton(BuildContext context, availableHeight) {
   return SizedBox(
     height: availableHeight * 0.08.adaptSize,
     child: ElevatedButton(
-        child: Text(
-          "Salvar",
-          style: TextStyle(
-              color: Colors.white, fontSize: availableHeight * 0.04.adaptSize),
-        ),
         onPressed: () {},
         style: ElevatedButton.styleFrom(
-          backgroundColor: Color(0XFFE62F31),
+          backgroundColor: const Color(0XFFE62F31),
           padding: EdgeInsets.symmetric(horizontal: 100.h, vertical: 15.v),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30.0),
           ),
+        ),
+        child: Text(
+          "Salvar",
+          style: TextStyle(
+              color: Colors.white, fontSize: availableHeight * 0.04.adaptSize),
         )),
   );
 }

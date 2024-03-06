@@ -37,14 +37,14 @@ class AppDecoration {
             color: appTheme.black900.withOpacity(0.25),
             spreadRadius: 2.h,
             blurRadius: 2.h,
-            offset: Offset(
+            offset: const Offset(
               0,
               4,
             ),
           ),
         ],
       );
-  static BoxDecoration get outlineBlack900 => BoxDecoration();
+  static BoxDecoration get outlineBlack900 => const BoxDecoration();
   static BoxDecoration get outlineBlack9001 => BoxDecoration(
         border: Border.all(
           color: appTheme.black900,
@@ -62,7 +62,7 @@ class AppDecoration {
             color: appTheme.black900.withOpacity(0.25),
             spreadRadius: 2.h,
             blurRadius: 2.h,
-            offset: Offset(
+            offset: const Offset(
               0,
               4,
             ),

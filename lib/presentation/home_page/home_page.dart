@@ -25,7 +25,7 @@ class HomePage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        body: Container(
+        body: SizedBox(
           width: double.maxFinite,
           child: Column(
             children: [

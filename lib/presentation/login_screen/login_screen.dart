@@ -30,7 +30,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Scaffold(
             backgroundColor: appTheme.blueGray50,
             resizeToAvoidBottomInset: false,
-            body: Container(
+            body: SizedBox(
                 height: availableHeight,
                 width: double.maxFinite,
                 child: Column(children: [

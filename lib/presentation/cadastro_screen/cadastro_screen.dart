@@ -17,7 +17,7 @@ class CadastroScreen extends StatelessWidget {
 
   TextEditingController searchController = TextEditingController();
 
-  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   final availableHeight = mediaQueryData.size.height -
       mediaQueryData.padding.top -

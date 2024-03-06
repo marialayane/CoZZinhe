@@ -24,7 +24,7 @@ class AppbarTitle extends StatelessWidget {
       onTap: () {
         onTap!.call();
       },
-      child: Container(
+      child: SizedBox(
         width: double.maxFinite,
         child: Text(
           text,

@@ -1,6 +1,3 @@
-import 'dart:async';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../../../core/app_export.dart';
 import '../../../models/item.dart';
@@ -21,14 +18,7 @@ class IgredientItem extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(15),
       child: GridTile(
-          child: Container(
-            decoration: BoxDecoration(color: Colors.white),
-            child: Image.asset(
-              categoria.imagePath,
-              fit: BoxFit.cover,
-            ),
-          ),
-          footer: Container(
+          footer: SizedBox(
             height: availableWidth * 0.08,
             child: GridTileBar(
               backgroundColor: Colors.black54,
@@ -36,16 +26,23 @@ class IgredientItem extends StatelessWidget {
                 item.name,
                 textAlign: TextAlign.center,
                 overflow: TextOverflow.ellipsis,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 17,
                   color: Colors.white,
                 ),
               ),
-              trailing: Icon(
+              trailing: const Icon(
                 size: 17,
                 Icons.remove_circle_outline_rounded,
                 color: Colors.white,
               ),
+            ),
+          ),
+          child: Container(
+            decoration: const BoxDecoration(color: Colors.white),
+            child: Image.asset(
+              categoria.imagePath,
+              fit: BoxFit.cover,
             ),
           )),
     );

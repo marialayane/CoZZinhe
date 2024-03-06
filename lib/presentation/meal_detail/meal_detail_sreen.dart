@@ -14,7 +14,7 @@ class MealDetailScreen extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 10),
       child: Text(
         title,
-        style: TextStyle(color: Colors.black, fontSize: 20),
+        style: const TextStyle(color: Colors.black, fontSize: 20),
       ),
     );
   }
@@ -41,13 +41,13 @@ class MealDetailScreen extends StatelessWidget {
               padding: const EdgeInsets.all(2),
               height: availableHeight * 0.05,
               decoration: BoxDecoration(
-                color: Color(0XFFE62F31),
+                color: const Color(0XFFE62F31),
                 border: Border.all(color: Colors.grey),
                 borderRadius: BorderRadius.circular(15),
               ),
               child: Text(
                 meal.title,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 18,
                 ),
@@ -64,11 +64,11 @@ class MealDetailScreen extends StatelessWidget {
                   height: availableHeight * 0.33,
                   width: availableWidth * 0.9,
                   child: ClipRRect(
+                      borderRadius: BorderRadius.circular(15),
                       child: Image.network(
                         meal.imageUrl,
                         fit: BoxFit.cover,
-                      ),
-                      borderRadius: BorderRadius.circular(15))),
+                      ))),
             ),
             _createSectionTitle(context, 'Ingredientes'),
             Container(
@@ -77,7 +77,7 @@ class MealDetailScreen extends StatelessWidget {
               padding: const EdgeInsets.only(right: 10, left: 10, bottom: 10),
               margin: const EdgeInsets.only(right: 10, left: 10, bottom: 10),
               decoration: BoxDecoration(
-                color: Color.fromARGB(255, 242, 206, 86),
+                color: const Color.fromARGB(255, 242, 206, 86),
                 border: Border.all(color: Colors.grey),
                 borderRadius: BorderRadius.circular(15),
               ),
@@ -93,7 +93,7 @@ class MealDetailScreen extends StatelessWidget {
                           ),
                           child: Text(
                             meal.ingredients[index],
-                            style: TextStyle(color: Colors.black, fontSize: 16),
+                            style: const TextStyle(color: Colors.black, fontSize: 16),
                           ),
                         ),
                       );
@@ -107,7 +107,7 @@ class MealDetailScreen extends StatelessWidget {
               padding: const EdgeInsets.all(10),
               margin: const EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: Color.fromARGB(255, 240, 115, 117),
+                color: const Color.fromARGB(255, 240, 115, 117),
                 border: Border.all(color: Colors.grey),
                 borderRadius: BorderRadius.circular(15),
               ),
@@ -123,7 +123,7 @@ class MealDetailScreen extends StatelessWidget {
                           ),
                           child: Text(
                             meal.steps[index],
-                            style: TextStyle(color: Colors.black, fontSize: 16),
+                            style: const TextStyle(color: Colors.black, fontSize: 16),
                           ),
                         ),
                       );
@@ -134,7 +134,7 @@ class MealDetailScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Color(0XFFE62F31),
+        backgroundColor: const Color(0XFFE62F31),
         child: Icon(
           isFavorite(meal) ? Icons.favorite : Icons.favorite_border,
           color: Colors.white,
